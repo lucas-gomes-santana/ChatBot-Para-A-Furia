@@ -1,0 +1,88 @@
+{
+    "intents": [
+      {
+        "tag": "contexto",
+        "patterns": [
+          "O que é a Furia?",
+          "Fale sobre a Furia.",
+          "Me conte sobre a Furia."
+        ],
+        "response": "A FURIA é uma organização de esports brasileira, conhecida principalmente por sua equipe de CS:GO."
+      },
+      {
+        "tag": "fundador",
+        "patterns": [
+          "Quem fundou a Furia?",
+          "Quem criou a Furia?",
+          "Qual o fundador da Furia?"
+        ],
+        "response": "A FURIA foi fundada por Jaime Pádua e André Akkari em 2017."
+      },
+      {
+        "tag": "jogadores",
+        "patterns": [
+          "Quem joga na Furia?",
+          "Qual é o time de CS:GO da Furia?",
+          "Quais são os jogadores da Furia?"
+        ],
+        "response": "A lineup de CS:GO da FURIA inclui yuurih, KSCERATO e arT."
+      },
+      {
+        "tag": "sede",
+        "patterns": [
+          "Onde fica a sede da Furia?",
+          "A Furia é de onde?",
+          "Onde está localizada a Furia?"
+        ],
+        "response": "A sede da FURIA fica em São Paulo, Brasil, com presença também nos EUA."
+      },
+      {
+        "tag": "patrocinadores",
+        "patterns": [
+          "Quem patrocina a Furia?",
+          "Quais são os patrocinadores da Furia?",
+          "A Furia tem patrocinadores?"
+        ],
+        "response": "A FURIA tem vários patrocinadores, incluindo Red Bull, Intel e outras marcas."
+      },
+      {
+        "tag": "historia",
+        "patterns": [
+          "Qual é a história da Furia?",
+          "Como a Furia começou?",
+          "Conte-me sobre a história da Furia."
+        ],
+        "response": "A FURIA começou como uma equipe de esports em 2017 e rapidamente se destacou no cenário competitivo."
+      }
+      ,
+      {
+        "tag": "eventos",
+        "patterns": [
+          "Quais eventos a Furia participa?",
+          "A Furia participa de quais campeonatos?",
+          "Quais torneios a Furia joga?"
+        ],
+        "response": "A FURIA participa de vários campeonatos, incluindo o Major de CS:GO e outros torneios internacionais."
+      },
+      {
+        "tag": "futuro",
+        "patterns": [
+          "Qual é o futuro da Furia?",
+          "O que vem a seguir para a Furia?",
+          "Quais são os planos futuros da Furia?"
+        ],
+        "response": "A FURIA planeja expandir sua presença global e continuar competindo em alto nível."
+      }
+      ,
+      {
+        "tag": "comunidade",
+        "patterns": [
+          "Como posso me envolver com a Furia?",
+          "A Furia tem uma comunidade?",
+          "Como faço parte da comunidade da Furia?"
+        ],
+        "response": "Você pode se envolver com a FURIA seguindo suas redes sociais e participando de eventos."
+      }
+    ]
+  }
+  
