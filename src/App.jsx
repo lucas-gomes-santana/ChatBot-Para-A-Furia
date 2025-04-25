@@ -18,8 +18,6 @@ function App() {
   const enviar = async () => {
     if (!mensagem.trim()) return;
 
-    setConversa(prev => [...prev, { autor: 'Você', texto: mensagem }]);
-
     const resposta = await responder(mensagem);
     setConversa(prev => [...prev, { autor: 'Você', texto: mensagem }, { autor: 'Bot', texto: resposta }]);
     setMensagem('');
@@ -30,7 +28,7 @@ function App() {
       <h1>ChatBot da FÚRIA</h1>
 
       {carregando ? (
-        <p>Carregando IA... aguarde alguns segundos ⏳</p>
+        <p>Carregando IA, aguarde alguns segundos...</p>
       ) : (
         <>
           <div className="chat-box">
@@ -43,7 +41,7 @@ function App() {
             type="text"
             value={mensagem}
             onChange={(e) => setMensagem(e.target.value)}
-            placeholder="Pergunte algo sobre a FURIA"
+            placeholder="Pergunte algo sobre a FÚRIA"
           />
           <button onClick={enviar}>Perguntar</button>
         </>

@@ -44,13 +44,20 @@ export async function carregarDados() {
 }
 
 export async function responder(pergunta) {
-  const entrada = vetorizar(pergunta);
-  const pred = model.predict(tf.tensor2d([entrada]));
-  const index = (await pred.argMax(1).data())[0];
-  const tag = labels[index];
-
-  const intent = intents.find(i => i.tag === tag);
-  return intent?.response || "Desculpe, não entendi a pergunta.";
+    const entrada = vetorizar(pergunta);
+    const pred = model.predict(tf.tensor2d([entrada]));
+  
+    const data = await pred.data();
+    const index = data.indexOf(Math.max(...data));
+    const confianca = data[index];
+  
+    if (confianca < 0.7) {
+      return "Desculpe, não entendi a pergunta.";
+    }
+  
+    const tag = labels[index];
+    const intent = intents.find(i => i.tag === tag);
+    return intent?.response || "Desculpe, não entendi a pergunta.";
 }
 
 function tokenize(frase) {
