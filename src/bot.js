@@ -44,20 +44,28 @@ export async function carregarDados() {
 }
 
 export async function responder(pergunta) {
-    const entrada = vetorizar(pergunta);
-    const pred = model.predict(tf.tensor2d([entrada]));
+  if (!model) {
+    return "O modelo ainda não foi carregado. Por favor, aguarde.";
+  }
+
+  const entrada = vetorizar(pergunta);
   
-    const data = await pred.data();
-    const index = data.indexOf(Math.max(...data));
-    const confianca = data[index];
-  
-    if (confianca < 0.7) {
+  const data = tf.tidy(() => {
+      const pred = model.predict(tf.tensor2d([entrada]));
+      return pred.dataSync();
+  });
+
+  const index = data.indexOf(Math.max(...data));
+  const confianca = data[index];
+  const tag = labels[index];
+  const intent = intents.find(i => i.tag === tag);
+
+  if (confianca < 0.7 || !intent || !intent.responses) {
       return "Desculpe, não entendi a pergunta.";
-    }
-  
-    const tag = labels[index];
-    const intent = intents.find(i => i.tag === tag);
-    return intent?.response || "Desculpe, não entendi a pergunta.";
+  }
+
+  const resposta = intent.responses[Math.floor(Math.random() * intent.responses.length)];
+  return resposta;
 }
 
 function tokenize(frase) {

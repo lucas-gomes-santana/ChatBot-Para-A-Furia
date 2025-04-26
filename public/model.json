@@ -23,7 +23,11 @@
           "Fale sobre a Furia.",
           "Me conte sobre a Furia."
         ],
-        "response": "A FURIA é uma organização de esports brasileira, conhecida principalmente por sua equipe de CS:GO."
+        "responses": [
+          "A FURIA é uma organização de esports brasileira, conhecida principalmente por sua equipe de CS:GO.",
+          "A FURIA é uma equipe de esports que compete em vários jogos, com destaque para CS:GO.",
+          "A FURIA é uma organização de esports que se destacou no cenário competitivo brasileiro e internacional."
+        ] 
       },
       {
         "tag": "fundador",
@@ -32,7 +36,11 @@
           "Quem criou a Furia?",
           "Qual o fundador da Furia?"
         ],
-        "response": "A FURIA foi fundada por Jaime Pádua e André Akkari em 2017."
+        "responses": [
+          "A FURIA foi fundada por André Akkari e outros investidores em 2017.",
+          "A FURIA foi criada por André Akkari, um conhecido jogador e empresário de esports.",
+          "André Akkari é um dos fundadores da FURIA, junto com outros investidores e colaboradores."
+        ]
       },
       {
         "tag": "jogadores",
@@ -41,7 +49,11 @@
           "Qual é o time de CS:GO da Furia?",
           "Quais são os jogadores da Furia?"
         ],
-        "response": "A lineup de CS:GO da FURIA inclui yuurih, KSCERATO e arT."
+        "responses": [
+          "Os jogadores da FURIA incluem yuurih, KSCERATO, arT e outros.",
+          "A equipe de CS:GO da FURIA é composta por yuurih, KSCERATO, arT e outros jogadores talentosos.",
+          "Atualmente, a FURIA tem em seu time de CS:GO jogadores como yuurih, KSCERATO e arT.Além de muitos outros conhecidos em outros jogos."
+        ]
       },
       {
         "tag": "sede",
@@ -50,7 +62,11 @@
           "A Furia é de onde?",
           "Onde está localizada a Furia?"
         ],
-        "response": "A sede da FURIA fica em São Paulo, Brasil, com presença também nos EUA."
+        "responses": [
+          "A sede da FURIA fica em São Paulo, Brasil.",
+          "A FURIA é uma organização brasileira com sede em São Paulo.",
+          "A FURIA está localizada em São Paulo, Brasil, e também tem presença nos EUA."
+        ]
       },
       {
         "tag": "patrocinadores",
@@ -59,7 +75,11 @@
           "Quais são os patrocinadores da Furia?",
           "A Furia tem patrocinadores?"
         ],
-        "response": "A FURIA tem vários patrocinadores, incluindo Red Bull, Intel e outras marcas."
+        "responses": [
+          "A FURIA tem vários patrocinadores, incluindo marcas como Red Bull, Intel e outras.",
+          "Os patrocinadores da FURIA incluem Red Bull, Intel e outras empresas do setor de tecnologia e entretenimento.",
+          "A FURIA é patrocinada por várias marcas, como Red Bull, Intel e outras que apoiam o cenário de esports."
+        ]
       },
       {
         "tag": "historia",
@@ -68,7 +88,11 @@
           "Como a Furia começou?",
           "Conte-me sobre a história da Furia."
         ],
-        "response": "A FURIA começou como uma equipe de esports em 2017 e rapidamente se destacou no cenário competitivo."
+        "responses": [
+          "A FURIA começou em 2017 e rapidamente se destacou no cenário de esports brasileiro e internacional.",
+          "A FURIA foi fundada em 2017 e desde então tem conquistado vários campeonatos e prêmios.",
+          "A história da FURIA é marcada por conquistas e crescimento no cenário competitivo de esports."
+        ]
       }
       ,
       {
@@ -78,7 +102,24 @@
           "A Furia participa de quais campeonatos?",
           "Quais torneios a Furia joga?"
         ],
-        "response": "A FURIA participa de vários campeonatos, incluindo o Major de CS:GO e outros torneios internacionais."
+        "responses": [
+          "A FURIA participa de vários campeonatos, incluindo o Major de CS:GO e outros torneios internacionais.",
+          "A FURIA compete em diversos eventos, como o Major de CS:GO e outros torneios de esports.",
+          "A FURIA está presente em muitos campeonatos, incluindo o Major de CS:GO e competições internacionais."
+        ] 
+      },
+      {
+        "tag": "conquistas",
+        "patterns": [
+          "Quais são as conquistas da Furia?",
+          "A Furia já ganhou campeonatos?",
+          "Quais prêmios a Furia conquistou?"
+        ],
+        "responses": [
+          "A FURIA já conquistou vários campeonatos, incluindo o ESL Pro League e outros torneios importantes.",
+          "As conquistas da FURIA incluem vitórias em campeonatos como o ESL Pro League e outros eventos de destaque.",
+          "A FURIA tem um histórico de conquistas em campeonatos, incluindo o ESL Pro League e outros torneios internacionais."
+        ]
       },
       {
         "tag": "futuro",
@@ -87,7 +128,11 @@
           "O que vem a seguir para a Furia?",
           "Quais são os planos futuros da Furia?"
         ],
-        "response": "A FURIA planeja expandir sua presença global e continuar competindo em alto nível."
+        "responses": [
+          "A FURIA planeja expandir sua presença em outros jogos e continuar competindo em alto nível.",
+          "O futuro da FURIA inclui a participação em mais torneios e o fortalecimento de sua marca no cenário de esports.",
+          "A FURIA está sempre buscando novas oportunidades e desafios no mundo dos esports."
+        ]
       }
       ,
       {
@@ -97,7 +142,11 @@
           "A Furia tem uma comunidade?",
           "Como faço parte da comunidade da Furia?"
         ],
-        "response": "Você pode se envolver com a FURIA seguindo suas redes sociais e participando de eventos."
+        "responses": [
+          "Você pode se envolver com a FURIA seguindo suas redes sociais e participando de eventos.",
+          "A FURIA tem uma comunidade ativa nas redes sociais, onde você pode interagir e acompanhar as novidades.",
+          "Para fazer parte da comunidade da FURIA, siga suas redes sociais e participe de eventos e promoções."
+        ]
       }
     ]
   }
