@@ -1,6 +1,22 @@
 {
     "intents": [
       {
+        "tag": "cumprimento",
+        "patterns": [
+          "Oi",
+          "Olá",
+          "E aí",
+          "Oi, tudo bem?",
+          "Olá, como você está?",
+          "Oi, como vai?"
+        ],
+        "responses": [
+          "Oi! Como posso ajudar?",
+          "Olá! O que você gostaria de saber sobra a FÚRIA?",
+          "E aí! Estou aqui para lhe ajudar a entender a FÚRIA."
+        ]
+      },
+      {
         "tag": "contexto",
         "patterns": [
           "O que é a Furia?",
