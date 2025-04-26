@@ -28,12 +28,24 @@ function App() {
       <h1>ChatBot da FÚRIA</h1>
 
       {carregando ? (
-        <p>Carregando IA, aguarde alguns segundos...</p>
+        <p>Carregando, aguarde alguns segundos...</p>
       ) : (
         <>
           <div className="chat-box">
             {conversa.map((msg, i) => (
-              <p key={i}><strong>{msg.autor}:</strong> {msg.texto}</p>
+              <p key={i}>
+                <strong>
+                  {msg.autor === 'Bot' ? (
+                    <img
+                      src="/Furia-Logo.png" // Certifique-se de que o logo está no diretório público
+                      alt="Logo da FÚRIA"
+                      className="bot-logo"
+                    />
+                  ) : (
+                    msg.autor
+                  )}
+                </strong>: {msg.texto}
+              </p>
             ))}
           </div>
 
@@ -45,6 +57,11 @@ function App() {
           />
           <button onClick={enviar}>Perguntar</button>
         </>
+      )}
+      {!carregando && (
+        <p className="warning-message">
+          Faça sempre perguntas válidas! O Bot não responderá perguntas mal elaboradas ou vazias.
+        </p>
       )}
     </div>
   );

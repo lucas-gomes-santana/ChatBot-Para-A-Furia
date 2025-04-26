@@ -39,20 +39,18 @@ export async function carregarDados() {
     epochs: 300,
     shuffle: true
   });
-
-  console.log('Modelo treinado com sucesso!');
 }
 
 export async function responder(pergunta) {
   if (!model) {
-    return "O modelo ainda não foi carregado. Por favor, aguarde.";
+    throw new Error("Modelo não carregado. Por favor, carregue os dados primeiro.");
   }
 
   const entrada = vetorizar(pergunta);
-  
+
   const data = tf.tidy(() => {
-      const pred = model.predict(tf.tensor2d([entrada]));
-      return pred.dataSync();
+    const pred = model.predict(tf.tensor2d([entrada]));
+    return pred.dataSync();
   });
 
   const index = data.indexOf(Math.max(...data));
@@ -61,7 +59,7 @@ export async function responder(pergunta) {
   const intent = intents.find(i => i.tag === tag);
 
   if (confianca < 0.7 || !intent || !intent.responses) {
-      return "Desculpe, não entendi a pergunta.";
+    return "Desculpe, não entendi a pergunta.";
   }
 
   const resposta = intent.responses[Math.floor(Math.random() * intent.responses.length)];
