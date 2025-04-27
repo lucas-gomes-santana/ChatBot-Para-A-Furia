@@ -29,17 +29,18 @@ function App() {
   useEffect(() => {
     async function buscarLives() {
       try {
-        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=furia&live_only=true', {
+        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=gaules&live_only=true', {
           headers: {
             'Client-Id': CLIENT_ID,
             'Authorization': `Bearer ${ACCESS_TOKEN}`
           }
         });
         const dados = await resposta.json();
-
-        // Filtrar apenas canais que estão realmente ao vivo
-        const aoVivo = dados.data.filter(canal => canal.is_live);
+  
+        // Filtrar apenas o canal do Gaules que está ao vivo
+        const aoVivo = dados.data.filter(canal => canal.broadcaster_login.toLowerCase() === 'gaules');
         setCanais(aoVivo);
+  
       } catch (error) {
         console.error('Erro ao buscar lives:', error);
         setErroLives('Não foi possível carregar as lives. Tente novamente mais tarde.');
@@ -47,7 +48,7 @@ function App() {
         setCarregandoLives(false);
       }
     }
-
+  
     buscarLives();
   }, []);
 
