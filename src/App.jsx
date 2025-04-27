@@ -29,21 +29,22 @@ function App() {
   useEffect(() => {
     async function buscarLives() {
       try {
-        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=gaules&live_only=true', {
+        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=baiano&live_only=true', {
           headers: {
             'Client-Id': CLIENT_ID,
             'Authorization': `Bearer ${ACCESS_TOKEN}`
           }
         });
+
         const dados = await resposta.json();
-  
-        // Filtrar apenas o canal do Gaules que está ao vivo
-        const aoVivo = dados.data.filter(canal => canal.broadcaster_login.toLowerCase() === 'gaules');
+        
+        const aoVivo = dados.data.filter(canal => canal.broadcaster_login.toLowerCase() === 'baiano');
         setCanais(aoVivo);
   
       } catch (error) {
         console.error('Erro ao buscar lives:', error);
         setErroLives('Não foi possível carregar as lives. Tente novamente mais tarde.');
+
       } finally {
         setCarregandoLives(false);
       }
@@ -58,8 +59,10 @@ function App() {
     try {
       const resposta = await responder(mensagem);
       setConversa(prev => [...prev, { autor: 'Você', texto: mensagem }, { autor: 'Bot', texto: resposta }]);
+
     } catch (error) {
       console.error('Erro ao enviar mensagem:', error);
+
       setConversa(prev => [...prev, { autor: 'Você', texto: mensagem }, { autor: 'Bot', texto: 'Desculpe, ocorreu um erro ao processar sua mensagem.' }]);
     } finally {
       setMensagem('');
@@ -114,10 +117,10 @@ function App() {
       </div>
 
       <div className="lives-container">
-        <h2>Lives da FURIA</h2>
+        <h2>Lives da FÚRIA</h2>
 
         {carregandoLives ? (
-          <p>Carregando lives...⏳</p>
+          <p>Carregando lives...</p>
         ) : erroLives ? (
           <p className="error-message">{erroLives}</p>
         ) : (
@@ -131,7 +134,6 @@ function App() {
                   <iframe
                     src={`https://player.twitch.tv/?channel=${canal.broadcaster_login}&parent=localhost`}
                     allowFullScreen
-                    frameBorder="0"
                     title={canal.display_name}
                     className="twitch-player"
                   ></iframe>
