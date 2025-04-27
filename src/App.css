@@ -14,18 +14,18 @@
 .chat-box {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
   background: #fff;
   padding: 15px;
   height: 450px;
   overflow-y: auto;
   border: 1px solid #ccc;
   margin-bottom: 15px;
+  font-size: 1.1rem;
 }
 
 .bot-logo {
-  width: 20px;
-  height: 20px;
+  width: 50px;
   margin-left: 8px;
   vertical-align: middle;
 }
@@ -55,4 +55,75 @@ button:hover {
   font-size: 1.1rem;
   text-align: center;
   margin-top: 40px;
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  .app-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .chat-box {
+    height: 350px;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .bot-logo {
+    width: 35px;
+  }
+
+  input {
+    width: 60%;
+    padding: 8px;
+    margin-right: 5px;
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .warning-message {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 15px;
+  }
+
+  .app-container h1 {
+    font-size: 1.2rem;
+  }
+
+  .chat-box {
+    height: 300px;
+    padding: 8px;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .warning-message {
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
 }

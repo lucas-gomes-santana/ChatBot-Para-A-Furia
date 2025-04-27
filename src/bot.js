@@ -42,10 +42,6 @@ export async function carregarDados() {
 }
 
 export async function responder(pergunta) {
-  if (!model) {
-    throw new Error("Modelo não carregado. Por favor, carregue os dados primeiro.");
-  }
-
   const entrada = vetorizar(pergunta);
 
   const data = tf.tidy(() => {

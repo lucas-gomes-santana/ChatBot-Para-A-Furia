@@ -60,7 +60,7 @@ function App() {
       )}
       {!carregando && (
         <p className="warning-message">
-          Faça sempre perguntas válidas! O Bot não responderá perguntas mal elaboradas ou vazias.
+          Faça perguntas válidas! O Bot não responderá perguntas mal elaboradas ou vazias.
         </p>
       )}
     </div>

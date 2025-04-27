@@ -141,7 +141,8 @@
         "patterns": [
           "Como posso me envolver com a Furia?",
           "A Furia tem uma comunidade?",
-          "Como faço parte da comunidade da Furia?"
+          "Como faço parte da comunidade da Furia?",
+          "Como posso entrar na comunidade da Furia?"
         ],
         "responses": [
           "Você pode se envolver com a FÚRIA seguindo suas redes sociais e participando de eventos.",
@@ -152,13 +153,16 @@
       {
         "tag": "entrada",
         "patterns": [
+          "Como entro no time da Furia?",
+          "Como posso ser jogador da Furia?",
           "Como posso entrar na Furia?",
+          "Como entro no time da Furia?",
           "A Furia aceita novos jogadores?",
           "Quais são os requisitos para entrar na Furia?"
         ],
         "responses": [
           "A FÚRIA tem um processo seletivo para novos jogadores, que varia de acordo com o jogo.",
-          "Para entrar na FÚRIA, você deve passar por um processo seletivo e demonstrar suas habilidades no jogo.",
+          "Para entrar na FÚRIA, você deve passar por um processo seletivo e demonstrar suas habilidades em um dos jogos que o nosso time possui um time competitivo presente.",
           "A FÚRIA aceita novos jogadores através de um processo seletivo, onde são avaliadas as habilidades e o potencial."
         ]
       },
