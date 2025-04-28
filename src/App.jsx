@@ -109,21 +109,18 @@ function App() {
             </button>
           </>
         )}
-        {!carregandoChat && (
-          <p className="chat-warning">
-            Faça perguntas válidas! O Bot não responderá perguntas mal elaboradas ou vazias.
-          </p>
-        )}
       </div>
 
       <div className="lives-container">
-        <h2>Lives da FÚRIA</h2>
+        <h2>Lives Ao-Vivo da FÚRIA</h2>
 
         {carregandoLives ? (
           <p>Carregando lives...</p>
+
         ) : erroLives ? (
           <p className="error-message">{erroLives}</p>
         ) : (
+
           <div className="lives-list">
             {canais.length === 0 ? (
               <p>Nenhuma live encontrada no momento.</p>
@@ -131,18 +128,22 @@ function App() {
               canais.map((canal, index) => (
                 <div key={index} className="live-card">
                   <h3>{canal.display_name}</h3>
+
                   <iframe
                     src={`https://player.twitch.tv/?channel=${canal.broadcaster_login}&parent=localhost`}
                     allowFullScreen
                     title={canal.display_name}
                     className="twitch-player"
                   ></iframe>
+
                 </div>
               ))
             )}
           </div>
         )}
+
       </div>
+
     </div>
   );
 }
