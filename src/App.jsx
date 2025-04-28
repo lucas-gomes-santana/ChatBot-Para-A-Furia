@@ -29,7 +29,7 @@ function App() {
   useEffect(() => {
     async function buscarLives() {
       try {
-        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=baiano&live_only=true', {
+        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=alanzoka&live_only=true', {
           headers: {
             'Client-Id': CLIENT_ID,
             'Authorization': `Bearer ${ACCESS_TOKEN}`
@@ -38,7 +38,7 @@ function App() {
 
         const dados = await resposta.json();
         
-        const aoVivo = dados.data.filter(canal => canal.broadcaster_login.toLowerCase() === 'baiano');
+        const aoVivo = dados.data.filter(canal => canal.broadcaster_login.toLowerCase() === 'alanzoka');
         setCanais(aoVivo);
   
       } catch (error) {
@@ -130,7 +130,7 @@ function App() {
                   <h3>{canal.display_name}</h3>
 
                   <iframe
-                    src={`https://player.twitch.tv/?channel=${canal.broadcaster_login}&parent=localhost`}
+                    src={`https://player.twitch.tv/?channel=${canal.broadcaster_login}&parent=localhost&parent=${import.meta.env.VITE_APP_DOMAIN}`}
                     allowFullScreen
                     title={canal.display_name}
                     className="twitch-player"

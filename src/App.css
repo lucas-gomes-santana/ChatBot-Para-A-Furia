@@ -111,3 +111,84 @@
     color: #ff4d4d;
     text-align: center;
 }
+
+
+
+@media (max-width: 768px) {
+    .chat-container {
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    .chat-box {
+        width: 100%;
+        height: 300px;
+        font-size: 1rem;
+    }
+
+    .chat-input {
+        width: 60%;
+        padding: 8px;
+        margin-right: 5px;
+    }
+
+    .chat-button {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .lives-container {
+        padding: 15px;
+        margin-top: 50px;
+    }
+
+    .lives-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .live-card {
+        padding: 8px;
+    }
+
+    .twitch-player {
+        height: 150px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .chat-container {
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .chat-box {
+        height: 250px;
+        font-size: 0.9rem;
+    }
+
+    .chat-input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .chat-button {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .lives-container {
+        padding: 10px;
+    }
+
+    .lives-list {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .twitch-player {
+        height: 120px;
+    }
+}

@@ -18,7 +18,7 @@ Este projeto foi feito para cumprir o desafio técnico estabelecido pela Furia v
 
 - O Bot de conversa foi feito com o uso da biblioteca Javascript **TensorFlow.js**.Ou seja, é utilizado uma IA que faz um "treinamento" simples do Bot para ele responder as perguntas feitas do usuário
 
-- A parte da interface que exibirá as lives que a Fúria realiza foi feita integrada com uma API pública da Twitch, que obtive acesso pela <a href="https://dev.twitch.tv/">Twitch Developers</a>.Com essa API, um trecho de código pesquisa pelo canal da Fúria presente na plataforma inserindo uma **query** na URL.
+- A parte da interface que exibirá as lives que a Fúria realiza foi feita integrada com uma API pública da Twitch, que obtive acesso pela <a href="https://dev.twitch.tv/">Twitch Developers</a>.Com essa API, um trecho de código pesquisa pelo canal da Fúria presente na plataforma inserindo uma **query** na URL e também fazendo uma verificação do nome do canal.
 
 <br>
 
@@ -38,7 +38,7 @@ Este projeto foi feito para cumprir o desafio técnico estabelecido pela Furia v
 
 A landing page foi hospedada no Vercel e está pronta para acesso e uso através desse link: <a href=""></a>
 
-Mas caso queira rodar no seu computador
+Mas caso queira rodar no seu computador:
 
 1. Execute primeiro esse comando: 
    ```bash
@@ -64,3 +64,79 @@ Mas caso queira rodar no seu computador
    ```bash
     http://localhost:5173/
    ```
+****
+
+### Informações extras
+
+Na linha 29 do App.jsx possui esse trecho de código:  
+```jsx
+useEffect(() => {
+    async function buscarLives() {
+      try {
+        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=furiatv&live_only=true', {
+          headers: {
+            'Client-Id': CLIENT_ID,
+            'Authorization': `Bearer ${ACCESS_TOKEN}`
+          }
+        });
+
+        const dados = await resposta.json();
+        
+        const aoVivo = dados.data.filter(canal => canal.broadcaster_login.toLowerCase() === 'furiatv');
+        setCanais(aoVivo);
+  
+      } catch (error) {
+        console.error('Erro ao buscar lives:', error);
+        setErroLives('Não foi possível carregar as lives. Tente novamente mais tarde.');
+
+      } finally {
+        setCarregandoLives(false);
+      }
+    }
+  
+    buscarLives();
+  }, []);
+```
+
+Note que o conteúdo **furiatv** aparece na query da URL da API e na variável tipo const **aoVivo**, isso determina que o código pegue apenas transmissões que estejam no endereço <a href="https://www.twitch.tv/search?term=furiatv">https://www.twitch.tv/search?term=furiatv</a> e que sejam do canal oficial da Fúria no Twitch. Isso pode ser facilmente modificado para fazer com que a live de outro canal apareça no lugar, como o canal do Gaules por exemplo. Quando for ser realizada a hospedagem da landing page, eu irei inserir o canal do Gaules, apenas para demonstração, já que o canal da Fúria não está em atividade no momento.
+
+<br>
+
+Este é um trecho de código do arquivo **model.json**, que é dos que constituem o ChatBot.
+```json
+{
+    "intents": [
+      {
+        "tag": "cumprimento",
+        "patterns": [
+          "Oi",
+          "Olá",
+          "Ola",
+          "E aí",
+          "Oi, tudo bem?",
+          "Olá, como você está?",
+          "Oi, como vai?"
+        ],
+        "responses": [
+          "Oi! Como posso ajudar?",
+          "Olá! O que você gostaria de saber sobre a FÚRIA?",
+          "E aí! Estou aqui para lhe ajudar a entender a FÚRIA."
+        ]
+      },
+      {
+        "tag": "contexto",
+        "patterns": [
+          "O que é a Furia?",
+          "Fale sobre a Furia.",
+          "Me conte sobre a Furia."
+        ],
+        "responses": [
+          "A FÚRIA é uma organização de esports brasileira, conhecida principalmente por sua equipe de CS:GO.",
+          "A FÚRIA é uma equipe de esports que compete em vários jogos, com destaque para CS:GO.",
+          "A FÚRIA é uma organização de esports que se destacou no cenário competitivo brasileiro e internacional."
+        ] 
+      },
+      // Resto do código
+```
+
+O ChatBot pode ser facilmente escalável, adicionando e(ou) modificando as tags, patterns e repostas para adptar isso ao contexto atual real que a Furia vive.
