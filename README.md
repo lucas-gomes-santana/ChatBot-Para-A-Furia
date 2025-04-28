@@ -16,7 +16,7 @@ Este projeto foi feito para cumprir o desafio técnico estabelecido pela Furia v
 
 - Foi usado React para criar a interface da landing page.
 
-- O Bot de conversa foi feito com o uso da biblioteca Javascript **TensorFlow.js**.Ou seja, é utilizado uma IA que faz um "treinamento" simples do Bot para ele responder as perguntas feitas do usuário
+- O Bot de conversa foi feito com o uso da biblioteca Javascript **TensorFlow.js**.Ou seja, é utilizado uma IA que faz um "treinamento" simples do Bot para ele responder as perguntas feitas do usuário.
 
 - A parte da interface que exibirá as lives que a Fúria realiza foi feita integrada com uma API pública da Twitch, que obtive acesso pela <a href="https://dev.twitch.tv/">Twitch Developers</a>.Com essa API, um trecho de código pesquisa pelo canal da Fúria presente na plataforma inserindo uma **query** na URL e também fazendo uma verificação do nome do canal.
 
@@ -24,7 +24,7 @@ Este projeto foi feito para cumprir o desafio técnico estabelecido pela Furia v
 
 ### Arquivos importantes da aplicação
 
-- **model.json:** Contido na pasta **public**, é o arquivo que define quais respostas ele deve falar para o usuário mediante a uma pergunta feita sobre a Fúria. Foi inserido várias respostas e várias perguntas para um mesmo contexto para o Bot ter uma ampla possibilidade de respostas para perguntas 
+- **model.json:** Contido na pasta **public**, é o arquivo que define quais respostas ChatBot deve falar para o usuário mediante a uma pergunta feita sobre a Fúria. Foi inserido várias respostas e várias perguntas para um mesmo contexto para o Bot ter uma ampla possibilidade de respostas para diferentes perguntas.
 
 - **bot.js:** Contido na pasta **src**, é o arquivo estrutural do ChatBot, que define sua forma de comportamento e ações para as perguntas feitas pelo usuário. Foi programado de forma que possa entender perguntas imcompletas feitas pelo usuário que possuem algum contexto, por exemplo, o usuário faz essa pergunta: "O que é?", o Bot entenderá isso como "O que é a FÚRIA?" e irá responder.
 
@@ -36,13 +36,16 @@ Este projeto foi feito para cumprir o desafio técnico estabelecido pela Furia v
 
 ### Como executar e(ou) acessar a aplicação
 
-A landing page foi hospedada no Vercel e está pronta para acesso e uso através desse link: <a href=""></a>
+A landing page foi hospedada no Vercel e está pronta para acesso através desse link: <a href="https://chat-bot-para-a-furia.vercel.app/">https://chat-bot-para-a-furia.vercel.app/</a>
 
 Mas caso queira rodar no seu computador:
 
-1. Execute primeiro esse comando: 
+1. Execute primeiro esses comandos em sequência no diretório do projeto: 
    ```bash
-   npm install && npm install npm install @tensorflow/tfjs
+   npm install
+   ```
+   ```bash
+   npm install @tensorflow/tfjs
    ```
 
    <br>
@@ -60,15 +63,13 @@ Mas caso queira rodar no seu computador:
    ```bash
    npm run dev
    ```
-   e cole este link na barra de endereços do seu navegador de preferência.
-   ```bash
-    http://localhost:5173/
-   ```
+   e cole o link gerado pelo React na barra de endereços do seu navegador de preferência.  Que geralmente é este aqui: <a href="http://localhost:5173/">http://localhost:5173/</a>
+  
 ****
 
 ### Informações extras
 
-Na linha 29 do App.jsx possui esse trecho de código:  
+A linha 29 do App.jsx possui esse trecho de código:  
 ```jsx
 useEffect(() => {
     async function buscarLives() {
@@ -139,4 +140,4 @@ Este é um trecho de código do arquivo **model.json**, que é dos que constitue
       // Resto do código
 ```
 
-O ChatBot pode ser facilmente escalável, adicionando e(ou) modificando as tags, patterns e repostas para adptar isso ao contexto atual real que a Furia vive.
+O ChatBot pode ser facilmente escalável, adicionando e(ou) modificando as tags, patterns e repostas para adptá-lo ao contexto atual que a Furia vive.

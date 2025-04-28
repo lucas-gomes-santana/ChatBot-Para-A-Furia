@@ -13,6 +13,7 @@ function App() {
   const [carregandoLives, setCarregandoLives] = useState(true);
   const [erroLives, setErroLives] = useState(null);
 
+  // Carrega os dados do chatbot ao iniciar a landing page
   useEffect(() => {
     async function initChat() {
       try {
@@ -26,33 +27,7 @@ function App() {
     initChat();
   }, []);
 
-  useEffect(() => {
-    async function buscarLives() {
-      try {
-        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=alanzoka&live_only=true', {
-          headers: {
-            'Client-Id': CLIENT_ID,
-            'Authorization': `Bearer ${ACCESS_TOKEN}`
-          }
-        });
-
-        const dados = await resposta.json();
-        
-        const aoVivo = dados.data.filter(canal => canal.broadcaster_login.toLowerCase() === 'alanzoka');
-        setCanais(aoVivo);
-  
-      } catch (error) {
-        console.error('Erro ao buscar lives:', error);
-        setErroLives('Não foi possível carregar as lives. Tente novamente mais tarde.');
-
-      } finally {
-        setCarregandoLives(false);
-      }
-    }
-  
-    buscarLives();
-  }, []);
-
+  // Trata o envio de mensagens do usuário para o chatbot
   const enviar = async () => {
     if (!mensagem.trim()) return;
 
@@ -69,6 +44,36 @@ function App() {
     }
   };
 
+  // Carrega as lives ao vivo de uma canal específico da Twitch
+  useEffect(() => {
+    async function buscarLives() {
+      try {
+        const resposta = await fetch('https://api.twitch.tv/helix/search/channels?query=gaules&live_only=true', {
+          headers: {
+            'Client-Id': CLIENT_ID,
+            'Authorization': `Bearer ${ACCESS_TOKEN}`
+          }
+        });
+
+        const dados = await resposta.json();
+        
+        const aoVivo = dados.data.filter(canal => canal.broadcaster_login.toLowerCase() === 'gaules');
+        setCanais(aoVivo);
+  
+      } catch (error) {
+        console.error('Erro ao buscar lives:', error);
+        setErroLives('Não foi possível carregar as lives. Tente novamente mais tarde.');
+
+      } finally {
+        setCarregandoLives(false);
+      }
+    }
+  
+    buscarLives();
+  }, []);
+
+  
+  // Estrutura HTML da landing page
   return (
     <div className="app-wrapper">
       <div className="chat-container">
