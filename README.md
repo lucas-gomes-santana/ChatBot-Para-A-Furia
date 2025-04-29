@@ -1,4 +1,4 @@
-# ChatBot para a Fúria
+# Landing Page para a FÚRIA (Challenge 1)
 
 <br>
 
